@@ -1,5 +1,5 @@
 export interface ProduitModel {
-    id: number;
+    id: string;
     nom: string;
     prixHT: number;
     tauxTVA: number;
