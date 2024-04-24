@@ -3,4 +3,6 @@ export interface EmployeModel {
   nom: string;
   prenom: string;
   salaireMensuel: number;
+  dateEntree?: Date;
+  indice?: number;
 }

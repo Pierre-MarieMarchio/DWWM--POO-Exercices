@@ -1,13 +1,26 @@
+
+// Animals Class
+
 import { AnimalModel } from "./models/Animal.model.js";
 import { Animal } from "./class/Animal.js";
+import { Chat } from "./class/Animal.Chat.js";
+import { Oiseau } from "./class/Animal.Oiseau.js";
+
+// Employes Class
 
 import { EmployeModel } from "./models/Employe.model.js";
 import { Employe } from "./class/Employe.js";
+import { Ouvrier } from "./class/Employe.Ouvier.js";
+
+// Produit Class
 
 import { ProduitModel } from "./models/Produit.model.js";
 import { Produit } from "./class/Produit.js";
 
 import { IdGenerator } from "./class/IdGenerator.js";
+import { Manager } from "./class/Employe.Manager.js";
+
+
 
 
 
@@ -15,19 +28,19 @@ import { IdGenerator } from "./class/IdGenerator.js";
 
 const animal1: AnimalModel = {
   id: IdGenerator.generateId(),
-  race: "chien",
+  race: "oiseau",
   weight: 80,
 };
 const animal2: AnimalModel = {
   id: IdGenerator.generateId(),
-  race: "chinchilla",
+  race: "chat",
   weight: 4,
 };
 
 const ani1 = new Animal(animal1);
 const ani2 = new Animal(animal2);
 
-ani1.race = "chinchilla";
+// ani1.race = "chinchilla";
 ani1.weight = 0.21;
 // ani1.race = "chihuahua";
 ani2.race = "chat";
@@ -59,7 +72,7 @@ const employe2 = new Employe(employé2);
 employe1.getSalaryAnnuel();
 employe2.getSalaryAnnuel();
 
-employe1.salaireMensuel = 3400;
+// employe1.salaireMensuel = 3400;
 // employe2.salaireMensuel = 150;
 
 
@@ -91,3 +104,23 @@ prdt2.prixHT = 100
 
 stylos.getDescription();
 farine.getDescription();
+
+
+// Exercice 3.1
+
+const chat1 = new Chat(animal1);
+console.log(chat1.race)
+
+const oiseau1 = new Oiseau(animal2);
+console.log(oiseau1.race)
+
+// Exercice 3.2
+
+const ouvrier1 = new Ouvrier(employe1, new Date(2000, 2, 1))
+console.log(ouvrier1.salaireMensuel);
+const manager1 = new Manager(employe1)
+console.log(manager1.salaireMensuel);
+const manager2 = new Manager(employe2, 30)
+console.log(manager2.salaireMensuel);
+
+

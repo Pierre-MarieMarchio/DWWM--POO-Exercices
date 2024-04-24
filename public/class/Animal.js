@@ -1,13 +1,10 @@
 import { IdGenerator } from "../class/IdGenerator.js";
 export class Animal {
-    constructor(animal, race) {
+    constructor(animal) {
         this.animal = animal;
         this.animal.id = animal.id || IdGenerator.generateId();
         this.weight = animal.weight;
-        this.race = animal.race || race;
-    }
-    crier() {
-        console.log(this.animal.race + " : l'animal crie");
+        this.race = animal.race;
     }
     get id() {
         if (this.animal.id)
@@ -26,8 +23,11 @@ export class Animal {
         return this.animal.race;
     }
     set race(value) {
-        if (value !== "chien" && value !== "chat" && value !== "chinchilla")
+        if (value !== "chat" && value !== "oiseau")
             throw new Error("Ce n'est pas un annimal autorisée");
         this.animal.race = value;
+    }
+    crier() {
+        console.log(this.animal.race + " : l'animal crie");
     }
 }

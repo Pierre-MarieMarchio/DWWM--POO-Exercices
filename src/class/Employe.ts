@@ -2,17 +2,24 @@ import { EmployeModel } from "../models/Employe.model";
 import { IdGenerator } from "../class/IdGenerator.js";
 
 export class Employe {
-  private employe: EmployeModel;
+  protected employe: EmployeModel;
+  protected static SMIC: number = 1398.69
 
   constructor(employe: EmployeModel) {
     this.employe = employe;
-    this.employe.id = employe.id || IdGenerator.generateId();
+    this.id = employe.id || IdGenerator.generateId();
     this.salaireMensuel = employe.salaireMensuel;
   }
 
   getSalaryAnnuel(): number {
     let annualSalary: number = this.employe.salaireMensuel * 12;
     return annualSalary
+  }
+
+  private set id(value: string) {
+
+    this.employe.id = value;
+     
   }
 
   public get id(): string {
@@ -33,7 +40,7 @@ export class Employe {
   }
 
   public set salaireMensuel(value) {
-    if (value < 1400 || value > 10000) throw new Error("le salaire doit etre comprie entre le 1400 et 10000 EUR");
+    if (value < Employe.SMIC || value > 10000) throw new Error("le salaire doit etre comprie entre le 1400 et 10000 EUR");
     this.employe.salaireMensuel = value;
   }
 }

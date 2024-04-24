@@ -18,7 +18,6 @@ export class Produit {
     set prixHT(value) {
         if (value < 0 || value > 1000)
             throw new Error("le prixHT doit etre comprie entre 0 et 1000");
-        ;
         this.produit.prixHT = value;
     }
     get tauxTVA() {
@@ -27,7 +26,6 @@ export class Produit {
     set tauxTVA(value) {
         if (value != 5.5 && value != 10 && value != 20)
             throw new Error("le tauxTVA doit etre de 5.5, 10 et 20");
-        ;
         this.produit.tauxTVA = value;
     }
     getPrixTTC() {
